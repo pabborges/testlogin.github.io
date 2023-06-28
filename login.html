@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="login-form">
+        <h1>Login</h1>
+        <form action="#" method="post">
+            <p>User Name</p>
+            <input type="text" name="user" placeholder="User Name" id="login">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Password" id="password">
+            <input type="submit" onclick="logar()" id="loginbtn"> 
+        </form>
+
+        <script>
+            function logar() {
+                var login = document.getElementById('login').value;
+                var password = document.getElementById('password').value;
+
+                if (login === "archdiocesela" && password === "Homeboy2013!!!") {
+                    alert('Success');
+                    location.href = "index.html";
+                } else {
+                    alert('Authentication failed. Please verify your username and password');
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
