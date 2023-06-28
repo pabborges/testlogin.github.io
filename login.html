@@ -24,19 +24,12 @@
 
                 if (login === "arch" && password === "123") {
                     alert('Success');
-                    localStorage.setItem("loggedIn", "true"); // Armazena o valor no armazenamento local
                     window.location.href = "index.html";
                 } else {
                     alert('Authentication failed. Please verify your username and password');
                 }
             });
-
-            // Verifica se o usuário está logado ao abrir a página index.html
-            if (!localStorage.getItem("loggedIn")) {
-                window.location.href = "login.html"; // Redireciona para a página de login se não estiver logado
-            }
         </script>
     </div>
 </body>
 </html>
-
