@@ -15,21 +15,43 @@
             <input type="submit" value="Log in" id="loginbtn"> 
         </form>
 
-        <script>
-            document.getElementById("loginForm").addEventListener("submit", function(event) {
-                event.preventDefault(); // Impede o envio do formulário
+    <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Impede o envio do formulário
 
-                var login = document.getElementById('login').value;
-                var password = document.getElementById('password').value;
+        var login = document.getElementById('login').value;
+        var password = document.getElementById('password').value;
 
-                if (login === "arch" && password === "123") {
-                    alert('Success');
-                    window.location.href = "index.html";
-                } else {
-                    alert('Authentication failed. Please verify your username and password');
-                }
-            });
-        </script>
+        if (login === "arch" && password === "123") {
+            localStorage.setItem("isLoggedIn", true);
+            localStorage.setItem("lastLoginTime", new Date().getTime());
+            alert('Success');
+            window.location.replace("index.html");
+        } else {
+            alert('Authentication failed. Please verify your username and password');
+        }
+    });
+
+    function checkLoginTimeout() {
+        var isLoggedIn = localStorage.getItem("isLoggedIn");
+        var lastLoginTime = localStorage.getItem("lastLoginTime");
+
+        if (isLoggedIn && lastLoginTime) {
+            var currentTime = new Date().getTime();
+            var elapsedTime = currentTime - parseInt(lastLoginTime);
+
+            if (elapsedTime >= 60000) { // 1 minuto = 60000 milissegundos
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("lastLoginTime");
+                window.location.href = "login.html";
+            }
+        }
+    }
+
+    checkLoginTimeout();
+    setInterval(checkLoginTimeout, 1000); // Verificar o tempo limite a cada segundo
+</script>
+
     </div>
 </body>
 </html>
