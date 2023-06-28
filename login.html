@@ -7,27 +7,30 @@
 <body>
     <div class="login-form">
         <h1>Login</h1>
-        <form action="#" method="post">
+        <form action="#" method="post" id="loginForm">
             <p>User Name</p>
             <input type="text" name="user" placeholder="User Name" id="login">
             <p>Password</p>
             <input type="password" name="password" placeholder="Password" id="password">
-            <input type="submit" onclick="logar()" id="loginbtn"> 
+            <input type="submit" value="Log in" id="loginbtn"> 
         </form>
 
         <script>
-            function logar() {
+            document.getElementById("loginForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Impede o envio do formulário
+
                 var login = document.getElementById('login').value;
                 var password = document.getElementById('password').value;
 
-                if (login === "archdiocesela" && password === "Homeboy2013!!!") {
+                if (login === "arch" && password === "123") {
                     alert('Success');
-                    location.href = "index.html";
+                    window.location.href = "index.html";
                 } else {
                     alert('Authentication failed. Please verify your username and password');
                 }
-            }
+            });
         </script>
     </div>
 </body>
 </html>
+
