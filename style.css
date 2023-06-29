@@ -278,18 +278,25 @@ hr{
         bottom: 25% !important;
     }
 }
-
+#chart-time-container{
+width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+}
 /*-----------TESTIMONIAL------*/
 
 #testimonial{
     width: 100%;
     padding: 70px 0;
+     background: #efefef;
 }
 .testimonial-row{
     width: 80%;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
 }
@@ -307,6 +314,7 @@ hr{
 }
 .user{
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin: 20px 0;
 }
@@ -453,7 +461,4 @@ body {
     border: 0;
     cursor: pointer;
 }
-
-
-
 
