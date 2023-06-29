@@ -40,7 +40,7 @@
             var currentTime = new Date().getTime();
             var elapsedTime = currentTime - parseInt(lastLoginTime);
 
-            if (elapsedTime >= 60000) { // 1 minuto = 60000 milissegundos
+            if (elapsedTime >= 600000) { // 10 minute = 600000 milisseconds
                 localStorage.removeItem("isLoggedIn");
                 localStorage.removeItem("lastLoginTime");
                 window.location.href = "login.html";
